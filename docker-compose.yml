@@ -1,0 +1,23 @@
+# go to this file path and run command --> docker-compose up -d
+# to scale the application run command --> docker-compose up -d --scale deploymentproject=2
+# to scale the application and build again run command --> docker-compose up -d --build --scale deploymentproject=2
+# docker ps
+# docker-compose down
+version: "3"
+
+services:
+  deploymentproject: # name of service
+    build:
+      context: . # path of Dockerfile is in present project is in same directory
+    ports:
+      - "5000"
+      #- "5000:5000"  # <docker container port>:<Machine or server port or system port>
+
+  nginx: # service name
+    image: nginx:latest # latest nginx image
+    volumes: # path of config files
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro # map system nginx.conf file to nginx image configuration file
+    depends_on: # asks nginx to wait till deploymentproject instances starts
+      - deploymentproject
+    ports:
+      - "8080:8080" # map <port 80 on my system to port 80 of docker nginx container>
