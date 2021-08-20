@@ -1,6 +1,10 @@
+# list of instructions on how to build a container
 FROM python:3.7-slim
 
+# name of the application in the docker container and its working directory
 WORKDIR /deploymentProject
+
+RUN cd /deploymentProject
 
 COPY . .
 

@@ -8,10 +8,11 @@ version: "3"
 services:
   deploymentproject: # name of service
     build:
-      context: . # path of Dockerfile is in present project is in same directory
+      context: . # path of Dockerfile that is present project is this case same directory
     ports:
       - "5000"
       #- "5000:5000"  # <docker container port>:<Machine or server port or system port>
+    restart: on-failure
 
   nginx: # service name
     image: nginx:latest # latest nginx image
@@ -20,4 +21,4 @@ services:
     depends_on: # asks nginx to wait till deploymentproject instances starts
       - deploymentproject
     ports:
-      - "8080:8080" # map <port 80 on my system to port 80 of docker nginx container>
+      - "8080:8080" # map <port 80 on my system/localhost to port 80 of docker nginx container>
