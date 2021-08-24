@@ -1,13 +1,21 @@
-from flask import Blueprint
-import os
+from flask import Blueprint, jsonify
 import socket
+from flask_mysqldb import MySQL
 
 course_blueprint = Blueprint('course', __name__, url_prefix='/course')
 
 
 @course_blueprint.route('/', methods=['GET'])
 def getCourses():
-    return f"Get all courses {os.getenv('SECRET_KEY')}!!"
+    mysql = MySQL()
+    connection = mysql.connection.cursor()
+    query = "select * from course"
+    connection.execute(query)
+    records = connection.fetchall()
+    mysql.connection.commit()
+    connection.close()
+
+    return jsonify(records)
 
 
 @course_blueprint.route('/addCourse', methods=['POST'])

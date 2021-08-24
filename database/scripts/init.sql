@@ -8,4 +8,4 @@ create table course(
 );
 
 
-insert into course values('AIML', '11 Months'), ('PGP', '1 year'), ('BE', '4 years');
+insert into course(name, duration) values('AIML', '11 Months'), ('PGP', '1 year'), ('BE', '4 years');

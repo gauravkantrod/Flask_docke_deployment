@@ -11,8 +11,6 @@ class ProductionConfig(Config):
 
 class DevelopmentConfig(Config):
     ENV = "development"
-    # SECRET_KEY = "9as8df(*S*8(das0ˆSˆD%5a67900SA(D*00"
-    #DEBUG = True
 
 
 class TestingConfig(Config):

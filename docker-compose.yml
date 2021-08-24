@@ -15,11 +15,6 @@ services:
     restart: always
     depends_on:
       - mysql_db
-    networks:
-      - backend-network
-      - frontend-network
-    env_file:
-      - dev.env
 
   nginx: # service name
     image: nginx:latest # latest nginx image
@@ -29,8 +24,6 @@ services:
     depends_on: # asks nginx to wait till deploymentproject instances starts
       - deploymentproject
     restart: always
-    networks:
-      - frontend-network
     ports:
       - "8080:8080" # map <port 80 on my system/localhost to port 80 of docker nginx container>
 
@@ -40,10 +33,10 @@ services:
     restart: always
     ports:
       - "3307:3306"
-    networks:
-      - backend-network
     environment:
       - MYSQL_DATABASE=coaching
       - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_PASSWORD=root
+      - MYSQL_USER=root
     volumes:
       - ./database/scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
