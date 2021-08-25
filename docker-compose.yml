@@ -13,8 +13,10 @@ services:
       - "5000"
       #- "5000:5000"  # 'HOST:CONTAINER' format <HOST or system port : docker container port>
     restart: always
-    depends_on:
+    links:
       - mysql_db
+    volumes:
+      - ./database/scripts/mysqld.sock:/var/run/mysqld
 
   nginx: # service name
     image: nginx:latest # latest nginx image
@@ -28,15 +30,13 @@ services:
       - "8080:8080" # map <port 80 on my system/localhost to port 80 of docker nginx container>
 
   mysql_db:
-    image: mysql:latest
+    image: mysql:8
     container_name: mysql_service
     restart: always
     ports:
       - "3307:3306"
     environment:
-      - MYSQL_DATABASE=coaching
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_PASSWORD=root
-      - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=12345678
     volumes:
       - ./database/scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./database/scripts/mysqld.sock:/var/run/mysqld

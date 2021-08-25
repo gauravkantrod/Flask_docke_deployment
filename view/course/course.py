@@ -3,11 +3,10 @@ import socket
 from flask_mysqldb import MySQL
 
 course_blueprint = Blueprint('course', __name__, url_prefix='/course')
-
+mysql = MySQL()
 
 @course_blueprint.route('/', methods=['GET'])
 def getCourses():
-    mysql = MySQL()
     connection = mysql.connection.cursor()
     query = "select * from course"
     connection.execute(query)
