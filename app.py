@@ -9,16 +9,25 @@ from view.course.course import course_blueprint
 from view.basicWorking.basicCheck import basic
 from flask_mysqldb import MySQL
 from healthcheck import HealthCheck
+import logging
 
 app = Flask(__name__)
-
 load_dotenv('dev.env')
-app.config['MYSQL_USER'] = os.environ['MYSQL_USER']
+
+
+logging.basicConfig(filename=os.getenv('LOGFILE_PATH'),
+                    level=os.getenv('LOGGING_LEVEL'),
+                    format='%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
+
+
+app.config['MYSQL_USER'] = os.getenv('MYSQL_USER')
 app.config['MYSQL_PASSWORD'] = os.environ['MYSQL_PASSWORD']
 app.config['MYSQL_HOST'] = os.environ['MYSQL_HOST']
 app.config['MYSQL_DB'] = os.environ['MYSQL_DB']
 app.config['MYSQL_PORT'] = int(os.environ['MYSQL_PORT'])
 
+print(app.config)
+print(os.getenv('LOGFILE_PATH'))
 mysql = MySQL(app)
 
 app.register_blueprint(order_manager_blueprint)

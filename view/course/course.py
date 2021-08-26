@@ -2,11 +2,8 @@ from flask import Blueprint, jsonify
 import socket
 from flask_mysqldb import MySQL
 from mysql.connector import errorcode
-
 import logging
 
-logging.basicConfig(filename='logs/log.log', level=logging.INFO,
-                    format='%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
 logger = logging.getLogger(__name__)
 
 course_blueprint = Blueprint('course', __name__, url_prefix='/course')
