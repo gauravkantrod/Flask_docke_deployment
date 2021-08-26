@@ -11,6 +11,7 @@ from view.user.user import userBlueprintObject
 from flask_mysqldb import MySQL
 from healthcheck import HealthCheck
 import logging
+from werkzeug.security import check_password_hash, generate_password_hash
 
 app = Flask(__name__)
 load_dotenv('dev.env')
