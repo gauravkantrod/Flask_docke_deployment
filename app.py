@@ -26,8 +26,6 @@ app.config['MYSQL_HOST'] = os.environ['MYSQL_HOST']
 app.config['MYSQL_DB'] = os.environ['MYSQL_DB']
 app.config['MYSQL_PORT'] = int(os.environ['MYSQL_PORT'])
 
-print(app.config)
-print(os.getenv('LOGFILE_PATH'))
 mysql = MySQL(app)
 
 app.register_blueprint(order_manager_blueprint)

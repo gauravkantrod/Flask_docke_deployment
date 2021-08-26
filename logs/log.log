@@ -1,33 +1,32 @@
-2021-08-26 12:44:31,251 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
-2021-08-26 12:45:01,818 INFO view.course.course Thread-1 : In: getCourses
-2021-08-26 12:45:01,825 INFO werkzeug Thread-1 : 127.0.0.1 - - [26/Aug/2021 12:45:01] "GET /course/ HTTP/1.1" 200 -
-2021-08-26 14:59:28,855 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
-2021-08-26 14:59:32,321 INFO werkzeug Thread-1 : 127.0.0.1 - - [26/Aug/2021 14:59:32] "GET / HTTP/1.1" 200 -
-2021-08-26 14:59:42,173 INFO werkzeug Thread-2 : 127.0.0.1 - - [26/Aug/2021 14:59:42] "GET / HTTP/1.1" 200 -
-2021-08-26 15:02:19,670 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
-2021-08-26 15:03:12,295 INFO werkzeug Thread-1 : 127.0.0.1 - - [26/Aug/2021 15:03:12] "GET / HTTP/1.1" 200 -
-2021-08-26 15:03:15,612 INFO view.course.course Thread-2 : In: getCourses
-2021-08-26 15:03:15,617 INFO werkzeug Thread-2 : 127.0.0.1 - - [26/Aug/2021 15:03:15] "GET /course/ HTTP/1.1" 200 -
-2021-08-26 15:03:50,230 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
-2021-08-26 15:03:53,222 INFO view.course.course Thread-1 : In: getCourses
-2021-08-26 15:03:53,228 INFO werkzeug Thread-1 : 127.0.0.1 - - [26/Aug/2021 15:03:53] "GET /course/ HTTP/1.1" 200 -
-2021-08-26 15:03:53,481 INFO view.course.course Thread-2 : In: getCourses
-2021-08-26 15:03:53,483 INFO werkzeug Thread-2 : 127.0.0.1 - - [26/Aug/2021 15:03:53] "GET /course/ HTTP/1.1" 200 -
-2021-08-26 15:05:26,963 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
-2021-08-26 15:05:29,509 INFO view.course.course Thread-1 : In: getCourses
-2021-08-26 15:05:29,513 ERROR app Thread-1 : Exception on /course/ [GET]
+2021-08-26 15:54:35,235 INFO werkzeug Thread-1 : 127.0.0.1 - - [26/Aug/2021 15:54:35] "GET / HTTP/1.1" 200 -
+2021-08-26 15:54:58,998 INFO werkzeug Thread-3 : 127.0.0.1 - - [26/Aug/2021 15:54:58] "[32mGET /course HTTP/1.1[0m" 308 -
+2021-08-26 15:54:59,005 INFO view.course.course Thread-4 : In: getCourses
+2021-08-26 15:54:59,016 INFO werkzeug Thread-4 : 127.0.0.1 - - [26/Aug/2021 15:54:59] "GET /course/ HTTP/1.1" 200 -
+2021-08-26 15:55:03,241 INFO view.course.course Thread-5 : addCourse: Adding course data!
+2021-08-26 15:55:03,272 INFO werkzeug Thread-5 : 127.0.0.1 - - [26/Aug/2021 15:55:03] "POST //course/addCourse HTTP/1.1" 200 -
+2021-08-26 15:55:09,368 INFO werkzeug Thread-6 : 127.0.0.1 - - [26/Aug/2021 15:55:09] "[32mGET /course HTTP/1.1[0m" 308 -
+2021-08-26 15:55:09,371 INFO view.course.course Thread-7 : In: getCourses
+2021-08-26 15:55:09,373 INFO werkzeug Thread-7 : 127.0.0.1 - - [26/Aug/2021 15:55:09] "GET /course/ HTTP/1.1" 200 -
+2021-08-26 15:55:57,581 INFO view.course.course Thread-8 : addCourse: Adding course data!
+2021-08-26 15:55:57,584 INFO werkzeug Thread-8 : 127.0.0.1 - - [26/Aug/2021 15:55:57] "POST /course/addCourse HTTP/1.1" 200 -
+2021-08-26 15:56:00,736 INFO werkzeug Thread-9 : 127.0.0.1 - - [26/Aug/2021 15:56:00] "[32mGET /course HTTP/1.1[0m" 308 -
+2021-08-26 15:56:00,740 INFO view.course.course Thread-10 : In: getCourses
+2021-08-26 15:56:00,742 INFO werkzeug Thread-10 : 127.0.0.1 - - [26/Aug/2021 15:56:00] "GET /course/ HTTP/1.1" 200 -
+2021-08-26 16:02:48,406 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-08-26 16:02:57,175 INFO werkzeug Thread-1 : 127.0.0.1 - - [26/Aug/2021 16:02:57] "[32mGET /course HTTP/1.1[0m" 308 -
+2021-08-26 16:02:57,180 INFO view.course.course Thread-2 : In: getCourses
+2021-08-26 16:02:57,188 ERROR app Thread-2 : Exception on /course/ [GET]
 Traceback (most recent call last):
-  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/view/course/course.py", line 17, in getCourses
-    connection = mysql.connection.cursor()
-  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask_mysqldb/__init__.py", line 94, in connection
-    ctx.mysql_db = self.connect
-  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask_mysqldb/__init__.py", line 81, in connect
-    return MySQLdb.connect(**kwargs)
-  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/MySQLdb/__init__.py", line 130, in Connect
-    return Connection(*args, **kwargs)
-  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/MySQLdb/connections.py", line 185, in __init__
-    super().__init__(*args, **kwargs2)
-MySQLdb._exceptions.OperationalError: (1049, "Unknown database 'coachin'")
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/view/course/course.py", line 23, in getCourses
+    connection.close().connection.commit()
+AttributeError: 'MySQL' object has no attribute 'close'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/view/course/course.py", line 26, in getCourses
+    except connection.connector.Error as err:
+AttributeError: 'MySQL' object has no attribute 'connector'
 
 During handling of the above exception, another exception occurred:
 
@@ -40,24 +39,25 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask/app.py", line 1499, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/view/course/course.py", line 25, in getCourses
-    except mysql.connector.Error as err:
-AttributeError: 'MySQL' object has no attribute 'connector'
-2021-08-26 15:05:29,520 INFO werkzeug Thread-1 : 127.0.0.1 - - [26/Aug/2021 15:05:29] "[35m[1mGET /course/ HTTP/1.1[0m" 500 -
-2021-08-26 15:08:33,389 INFO view.course.course Thread-3 : In: getCourses
-2021-08-26 15:08:33,390 ERROR app Thread-3 : Exception on /course/ [GET]
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/view/course/course.py", line 35, in getCourses
+    connection.close()
+AttributeError: 'MySQL' object has no attribute 'close'
+2021-08-26 16:02:57,192 INFO werkzeug Thread-2 : 127.0.0.1 - - [26/Aug/2021 16:02:57] "[35m[1mGET /course/ HTTP/1.1[0m" 500 -
+2021-08-26 16:03:40,724 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-08-26 16:03:43,676 INFO werkzeug Thread-1 : 127.0.0.1 - - [26/Aug/2021 16:03:43] "[32mGET /course HTTP/1.1[0m" 308 -
+2021-08-26 16:03:43,683 INFO view.course.course Thread-2 : In: getCourses
+2021-08-26 16:03:43,688 ERROR app Thread-2 : Exception on /course/ [GET]
 Traceback (most recent call last):
-  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/view/course/course.py", line 17, in getCourses
-    connection = mysql.connection.cursor()
-  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask_mysqldb/__init__.py", line 94, in connection
-    ctx.mysql_db = self.connect
-  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask_mysqldb/__init__.py", line 81, in connect
-    return MySQLdb.connect(**kwargs)
-  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/MySQLdb/__init__.py", line 130, in Connect
-    return Connection(*args, **kwargs)
-  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/MySQLdb/connections.py", line 185, in __init__
-    super().__init__(*args, **kwargs2)
-MySQLdb._exceptions.OperationalError: (1049, "Unknown database 'coachin'")
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/view/course/course.py", line 23, in getCourses
+    connection.commit()
+AttributeError: 'MySQL' object has no attribute 'commit'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/view/course/course.py", line 26, in getCourses
+    except connection.connector.Error as err:
+AttributeError: 'MySQL' object has no attribute 'connector'
 
 During handling of the above exception, another exception occurred:
 
@@ -70,10 +70,93 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask/app.py", line 1499, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/view/course/course.py", line 25, in getCourses
-    except mysql.connector.Error as err:
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/view/course/course.py", line 35, in getCourses
+    connection.close()
+AttributeError: 'MySQL' object has no attribute 'close'
+2021-08-26 16:03:43,689 INFO werkzeug Thread-2 : 127.0.0.1 - - [26/Aug/2021 16:03:43] "[35m[1mGET /course/ HTTP/1.1[0m" 500 -
+2021-08-26 16:04:23,955 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-08-26 16:04:25,883 INFO werkzeug Thread-1 : 127.0.0.1 - - [26/Aug/2021 16:04:25] "[32mGET /course HTTP/1.1[0m" 308 -
+2021-08-26 16:04:25,889 INFO view.course.course Thread-2 : In: getCourses
+2021-08-26 16:04:25,899 ERROR app Thread-2 : Exception on /course/ [GET]
+Traceback (most recent call last):
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/view/course/course.py", line 23, in getCourses
+    connection.commit()
+AttributeError: 'MySQL' object has no attribute 'commit'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/view/course/course.py", line 26, in getCourses
+    except connection.connector.Error as err:
 AttributeError: 'MySQL' object has no attribute 'connector'
-2021-08-26 15:08:33,391 INFO werkzeug Thread-3 : 127.0.0.1 - - [26/Aug/2021 15:08:33] "[35m[1mGET /course/ HTTP/1.1[0m" 500 -
-2021-08-26 15:08:36,556 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
-2021-08-26 15:08:37,901 INFO view.course.course Thread-1 : In: getCourses
-2021-08-26 15:08:37,906 INFO werkzeug Thread-1 : 127.0.0.1 - - [26/Aug/2021 15:08:37] "GET /course/ HTTP/1.1" 200 -
+2021-08-26 16:04:25,905 INFO werkzeug Thread-2 : 127.0.0.1 - - [26/Aug/2021 16:04:25] "[35m[1mGET /course/ HTTP/1.1[0m" 500 -
+2021-08-26 16:06:32,310 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-08-26 16:06:34,386 INFO werkzeug Thread-1 : 127.0.0.1 - - [26/Aug/2021 16:06:34] "[32mGET /course HTTP/1.1[0m" 308 -
+2021-08-26 16:06:34,390 INFO view.course.course Thread-2 : In: getCourses
+2021-08-26 16:06:34,399 ERROR app Thread-2 : Exception on /course/ [GET]
+Traceback (most recent call last):
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/view/course/course.py", line 24, in getCourses
+    connection.commit()
+AttributeError: 'MySQL' object has no attribute 'commit'
+2021-08-26 16:06:34,402 INFO werkzeug Thread-2 : 127.0.0.1 - - [26/Aug/2021 16:06:34] "[35m[1mGET /course/ HTTP/1.1[0m" 500 -
+2021-08-26 16:12:14,170 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-08-26 16:12:19,236 INFO werkzeug Thread-1 : 127.0.0.1 - - [26/Aug/2021 16:12:19] "[32mGET /course HTTP/1.1[0m" 308 -
+2021-08-26 16:12:19,244 INFO view.course.course Thread-2 : In: getCourses
+2021-08-26 16:12:19,250 INFO werkzeug Thread-2 : 127.0.0.1 - - [26/Aug/2021 16:12:19] "GET /course/ HTTP/1.1" 200 -
+2021-08-26 16:12:29,050 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-08-26 16:12:57,160 INFO werkzeug Thread-1 : 127.0.0.1 - - [26/Aug/2021 16:12:57] "[32mGET /course HTTP/1.1[0m" 308 -
+2021-08-26 16:12:57,165 INFO view.course.course Thread-2 : In: getCourses
+2021-08-26 16:12:57,170 ERROR app Thread-2 : Exception on /course/ [GET]
+Traceback (most recent call last):
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/view/course/course.py", line 35, in getCourses
+    connection.close()
+AttributeError: 'MySQL' object has no attribute 'close'
+2021-08-26 16:12:57,174 INFO werkzeug Thread-2 : 127.0.0.1 - - [26/Aug/2021 16:12:57] "[35m[1mGET /course/ HTTP/1.1[0m" 500 -
+2021-08-26 16:15:07,214 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-08-26 16:15:10,789 INFO werkzeug Thread-1 : 127.0.0.1 - - [26/Aug/2021 16:15:10] "[32mGET /course HTTP/1.1[0m" 308 -
+2021-08-26 16:15:10,795 INFO view.course.course Thread-2 : In: getCourses
+2021-08-26 16:15:10,804 INFO werkzeug Thread-2 : 127.0.0.1 - - [26/Aug/2021 16:15:10] "GET /course/ HTTP/1.1" 200 -
+2021-08-26 16:17:00,299 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-08-26 16:17:08,383 INFO view.course.course Thread-1 : addCourse: Adding course data!
+2021-08-26 16:17:08,392 INFO werkzeug Thread-1 : 127.0.0.1 - - [26/Aug/2021 16:17:08] "POST /course/addCourse HTTP/1.1" 200 -
+2021-08-26 16:17:12,096 INFO werkzeug Thread-2 : 127.0.0.1 - - [26/Aug/2021 16:17:12] "[32mGET /course HTTP/1.1[0m" 308 -
+2021-08-26 16:17:12,101 INFO view.course.course Thread-3 : In: getCourses
+2021-08-26 16:17:12,103 INFO werkzeug Thread-3 : 127.0.0.1 - - [26/Aug/2021 16:17:12] "GET /course/ HTTP/1.1" 200 -
+2021-08-26 16:17:15,500 INFO view.course.course Thread-4 : addCourse: Adding course data!
+2021-08-26 16:17:15,502 INFO werkzeug Thread-4 : 127.0.0.1 - - [26/Aug/2021 16:17:15] "POST /course/addCourse HTTP/1.1" 200 -
+2021-08-26 16:17:18,266 INFO werkzeug Thread-5 : 127.0.0.1 - - [26/Aug/2021 16:17:18] "[32mGET /course HTTP/1.1[0m" 308 -
+2021-08-26 16:17:18,270 INFO view.course.course Thread-6 : In: getCourses
+2021-08-26 16:17:18,272 INFO werkzeug Thread-6 : 127.0.0.1 - - [26/Aug/2021 16:17:18] "GET /course/ HTTP/1.1" 200 -
+2021-08-26 16:17:59,332 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-08-26 16:18:01,657 INFO werkzeug Thread-1 : 127.0.0.1 - - [26/Aug/2021 16:18:01] "[32mGET /course HTTP/1.1[0m" 308 -
+2021-08-26 16:18:01,662 INFO view.course.course Thread-2 : In: getCourses
+2021-08-26 16:18:01,668 INFO werkzeug Thread-2 : 127.0.0.1 - - [26/Aug/2021 16:18:01] "GET /course/ HTTP/1.1" 200 -
+2021-08-26 16:18:03,909 INFO view.course.course Thread-3 : addCourse: Adding course data!
+2021-08-26 16:18:03,912 INFO werkzeug Thread-3 : 127.0.0.1 - - [26/Aug/2021 16:18:03] "POST /course/addCourse HTTP/1.1" 200 -
+2021-08-26 16:18:06,090 INFO werkzeug Thread-4 : 127.0.0.1 - - [26/Aug/2021 16:18:06] "[32mGET /course HTTP/1.1[0m" 308 -
+2021-08-26 16:18:06,093 INFO view.course.course Thread-5 : In: getCourses
+2021-08-26 16:18:06,094 INFO werkzeug Thread-5 : 127.0.0.1 - - [26/Aug/2021 16:18:06] "GET /course/ HTTP/1.1" 200 -
