@@ -44,3 +44,36 @@ Traceback (most recent call last):
     except mysql.connector.Error as err:
 AttributeError: 'MySQL' object has no attribute 'connector'
 2021-08-26 15:05:29,520 INFO werkzeug Thread-1 : 127.0.0.1 - - [26/Aug/2021 15:05:29] "[35m[1mGET /course/ HTTP/1.1[0m" 500 -
+2021-08-26 15:08:33,389 INFO view.course.course Thread-3 : In: getCourses
+2021-08-26 15:08:33,390 ERROR app Thread-3 : Exception on /course/ [GET]
+Traceback (most recent call last):
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/view/course/course.py", line 17, in getCourses
+    connection = mysql.connection.cursor()
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask_mysqldb/__init__.py", line 94, in connection
+    ctx.mysql_db = self.connect
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask_mysqldb/__init__.py", line 81, in connect
+    return MySQLdb.connect(**kwargs)
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/MySQLdb/__init__.py", line 130, in Connect
+    return Connection(*args, **kwargs)
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb._exceptions.OperationalError: (1049, "Unknown database 'coachin'")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/view/course/course.py", line 25, in getCourses
+    except mysql.connector.Error as err:
+AttributeError: 'MySQL' object has no attribute 'connector'
+2021-08-26 15:08:33,391 INFO werkzeug Thread-3 : 127.0.0.1 - - [26/Aug/2021 15:08:33] "[35m[1mGET /course/ HTTP/1.1[0m" 500 -
+2021-08-26 15:08:36,556 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-08-26 15:08:37,901 INFO view.course.course Thread-1 : In: getCourses
+2021-08-26 15:08:37,906 INFO werkzeug Thread-1 : 127.0.0.1 - - [26/Aug/2021 15:08:37] "GET /course/ HTTP/1.1" 200 -

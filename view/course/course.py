@@ -29,6 +29,8 @@ def getCourses():
             logger.error("Database does not exist")
         else:
             logger.error(err)
+    else:
+        print("")
 
 
 @course_blueprint.route('/addCourse', methods=['POST'])
