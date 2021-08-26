@@ -14,13 +14,14 @@ def getCourses():
     query = "select * from course"
     try:
         connection = MySQL()
-        logger.info("In: getCourses")
+        logger.info("getCourses: Fetching all courses started!!")
         cursor = connection.connection.cursor()
 
         cursor.execute(query)
         records = cursor.fetchall()
         cursor.connection.commit()
 
+        logger.info("getCourses: Fetching all courses completed!!")
         return jsonify(records)
     except connection.connector.Error as err:
         if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:

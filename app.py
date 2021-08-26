@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 from view.order_management.order import order_manager_blueprint
 from view.course.course import course_blueprint
 from view.basicWorking.basicCheck import basic
-from view.user.user import user
+from view.user.user import userBlueprintObject
 from flask_mysqldb import MySQL
 from healthcheck import HealthCheck
 import logging
@@ -30,7 +30,7 @@ mysql = MySQL(app)
 app.register_blueprint(order_manager_blueprint)
 app.register_blueprint(course_blueprint)
 app.register_blueprint(basic)
-app.register_blueprint(user)
+app.register_blueprint(userBlueprintObject)
 
 health = HealthCheck()
 
@@ -47,7 +47,3 @@ app.add_url_rule("/healthCheck", 'healthCheck', view_func=lambda: health.run())
 @app.errorhandler(404)
 def resource_not_found(e):
     return jsonify(error=str(e)), 404
-
-
-
-

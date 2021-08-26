@@ -14,6 +14,7 @@ values
 ('BE', '4 years');
 
 create table users(
+	ID int auto_increment primary key,
     firstname varchar(50),
     lastname varchar(50),
     email varchar(50),
