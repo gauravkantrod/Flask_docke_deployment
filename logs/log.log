@@ -1,0 +1,80 @@
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:view.course.course:In: getCourses
+INFO:werkzeug:127.0.0.1 - - [26/Aug/2021 12:30:38] "GET /course/ HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:view.course.course:In: getCourses
+INFO:werkzeug:127.0.0.1 - - [26/Aug/2021 12:30:57] "GET /course/ HTTP/1.1" 200 -
+INFO:view.course.course:In: getCourses
+INFO:werkzeug:127.0.0.1 - - [26/Aug/2021 12:30:58] "GET /course/ HTTP/1.1" 200 -
+INFO:view.course.course:In: getCourses
+INFO:werkzeug:127.0.0.1 - - [26/Aug/2021 12:31:13] "GET /course/ HTTP/1.1" 200 -
+INFO:view.course.course:In: getCourses
+INFO:werkzeug:127.0.0.1 - - [26/Aug/2021 12:31:13] "GET /course/ HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:view.course.course:In: getCourses
+ERROR:app:Exception on /course/ [GET]
+Traceback (most recent call last):
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/view/course/course.py", line 19, in getCourses
+    connection = mysql.connection.cursor()
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask_mysqldb/__init__.py", line 94, in connection
+    ctx.mysql_db = self.connect
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask_mysqldb/__init__.py", line 81, in connect
+    return MySQLdb.connect(**kwargs)
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/MySQLdb/__init__.py", line 130, in Connect
+    return Connection(*args, **kwargs)
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb._exceptions.OperationalError: (1049, "Unknown database 'coachin'")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/view/course/course.py", line 27, in getCourses
+    except mysql.connector.Error as err:
+AttributeError: 'MySQL' object has no attribute 'connector'
+INFO:werkzeug:127.0.0.1 - - [26/Aug/2021 12:32:41] "[35m[1mGET /course/ HTTP/1.1[0m" 500 -
+INFO:view.course.course:In: getCourses
+ERROR:app:Exception on /course/ [GET]
+Traceback (most recent call last):
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/view/course/course.py", line 19, in getCourses
+    connection = mysql.connection.cursor()
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask_mysqldb/__init__.py", line 94, in connection
+    ctx.mysql_db = self.connect
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask_mysqldb/__init__.py", line 81, in connect
+    return MySQLdb.connect(**kwargs)
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/MySQLdb/__init__.py", line 130, in Connect
+    return Connection(*args, **kwargs)
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb._exceptions.OperationalError: (1049, "Unknown database 'coachin'")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/env/lib/python3.7/site-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/gauravkantrod/PycharmProjects/deploymentProject/view/course/course.py", line 27, in getCourses
+    except mysql.connector.Error as err:
+AttributeError: 'MySQL' object has no attribute 'connector'
+INFO:werkzeug:127.0.0.1 - - [26/Aug/2021 12:33:31] "[35m[1mGET /course/ HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:view.course.course:In: getCourses
+INFO:werkzeug:127.0.0.1 - - [26/Aug/2021 12:33:36] "GET /course/ HTTP/1.1" 200 -
+2021-08-26 12:34:46,437 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-08-26 12:34:49,829 INFO view.course.course Thread-1 : In: getCourses
+2021-08-26 12:34:49,835 INFO werkzeug Thread-1 : 127.0.0.1 - - [26/Aug/2021 12:34:49] "GET /course/ HTTP/1.1" 200 -

@@ -8,6 +8,7 @@ from view.order_management.order import order_manager_blueprint
 from view.course.course import course_blueprint
 from view.basicWorking.basicCheck import basic
 from flask_mysqldb import MySQL
+from healthcheck import HealthCheck
 
 app = Flask(__name__)
 
@@ -18,10 +19,19 @@ app.config['MYSQL_HOST'] = os.environ['MYSQL_HOST']
 app.config['MYSQL_DB'] = os.environ['MYSQL_DB']
 app.config['MYSQL_PORT'] = int(os.environ['MYSQL_PORT'])
 
-
 mysql = MySQL(app)
-print(app.config)
 
 app.register_blueprint(order_manager_blueprint)
 app.register_blueprint(course_blueprint)
 app.register_blueprint(basic)
+
+health = HealthCheck()
+
+
+def isAppWorking():
+    return True, 'Yes Application is working!!!'
+
+
+health.add_check(isAppWorking)
+
+app.add_url_rule("/healthCheck", 'healthCheck', view_func=lambda: health.run())
