@@ -15,8 +15,9 @@ values
 
 create table users(
 	ID int auto_increment primary key,
-    firstname varchar(50),
-    lastname varchar(50),
-    email varchar(50),
+    firstname varchar(50) not null,
+    lastname varchar(50) not null,
+    password varchar(100) not null,
+    email varchar(50) not null,
     isStudent boolean default true
 );

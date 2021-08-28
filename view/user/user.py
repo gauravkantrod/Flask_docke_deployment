@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_mysqldb import MySQL
 from mysql.connector import errorcode
 import logging
+from werkzeug.security import check_password_hash, generate_password_hash
 
 # User's Blueprint object
 userBlueprintObject = Blueprint('user', __name__, url_prefix='/users')
@@ -35,11 +36,15 @@ def getAllUsers():
 
 @userBlueprintObject.route('/addUser', methods=['POST'])
 def addUser():
-    query = 'INSERT INTO users(firstname, lastname, email, isStudent) values (%s, %s, %s, %s)'
+    query = 'INSERT INTO users(firstname, lastname, password, email, isStudent) ' \
+            'values (%s, %s, %s, %s, %s)'
+
     try:
         logger.info("addUser: Adding user!!")
         data = request.get_json()
-        args = (data['firstname'], data['lastname'], data['email'], data['isStudent'])
+        print(generate_password_hash(data['password']))
+        args = (data['firstname'], data['lastname'],
+                generate_password_hash(data['password']), data['email'], data['isStudent'])
         connection = MySQL()
         cursor = connection.connection.cursor()
         cursor.execute(query, args)
