@@ -1,5 +1,0 @@
-2021-08-26 20:57:43,704 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
-2021-08-26 20:57:46,853 INFO view.user.user Thread-1 : getAllUsers: Fetching all users started
-2021-08-26 20:57:46,860 INFO view.user.user Thread-1 : getCourses: Fetching all users completed!!
-2021-08-26 20:57:46,861 INFO werkzeug Thread-1 : 127.0.0.1 - - [26/Aug/2021 20:57:46] "GET /users/ HTTP/1.1" 200 -
-2021-08-26 23:06:58,898 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)

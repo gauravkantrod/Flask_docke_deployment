@@ -14,10 +14,9 @@ values
 ('BE', '4 years');
 
 create table users(
-	ID int auto_increment primary key,
+	email varchar(50) primary key,
     firstname varchar(50) not null,
     lastname varchar(50) not null,
-    password varchar(100) not null,
-    email varchar(50) not null,
+    password varchar(200) not null,
     isStudent boolean default true
 );
