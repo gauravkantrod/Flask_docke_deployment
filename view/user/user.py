@@ -16,14 +16,15 @@ def getAllUsers():
     users = User.query.all()
     len(users)
     user_schema = UserSchema()
-    return {"users" : user_schema.dump(users, many=True)}
+    return {"users": user_schema.dump(users, many=True)}
 
 
 @userBlueprintObject.route('/addUser', methods=['POST'])
 def addUser():
     logger.info("addUser: Adding user!!")
     data = request.get_json()
-    u = User(data['email'], generate_password_hash(data['password']), data['firstname'], data['lastname'], data['isStudent'])
+    u = User(data['email'], generate_password_hash(data['password']), data['firstname'], data['lastname'],
+             data['isStudent'])
     db_session.add(u)
     db_session.commit()
 

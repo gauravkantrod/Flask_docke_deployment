@@ -16,9 +16,3 @@ class User(Base):
         self.first_name = first_name
         self.last_name = last_name
         self.isStudent = isStudent
-
-    def __repr__(self):
-        return f"{self.email}"
-
-
-
