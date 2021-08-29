@@ -6,7 +6,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-course_blueprint = Blueprint('course', __name__, url_prefix='/course')
+course_blueprint = Blueprint('course', __name__, url_prefix='/api/v1/course')
 
 
 @course_blueprint.route('/', methods=['GET'])

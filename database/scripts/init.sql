@@ -1,4 +1,4 @@
-create database coaching;
+create database if not exists coaching;
 --use coaching;
 --
 --create table course(

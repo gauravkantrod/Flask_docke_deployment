@@ -1,5 +1,4 @@
 import os
-
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
@@ -8,7 +7,7 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 load_dotenv(dotenv_path='dev.env')
 
 database_URL = \
-    "mysql://" + os.getenv('MYSQL_USER') + ":" + os.environ['MYSQL_PASSWORD'] + \
+    "mysql://" + os.environ['MYSQL_USER'] + ":" + os.environ['MYSQL_PASSWORD'] + \
     "@" + os.environ['MYSQL_HOST'] + ":" + os.environ['MYSQL_PORT'] + "/" + os.environ['MYSQL_DB']
 
 engine = create_engine(database_URL)

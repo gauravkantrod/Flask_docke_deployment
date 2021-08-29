@@ -8,6 +8,7 @@ from view.order_management.order import order_manager_blueprint
 from view.course.course import course_blueprint
 from view.basicWorking.basicCheck import basic
 from view.user.user import userBlueprintObject
+from view.auth.login import loginBlueprintObject
 #from flask_mysqldb import MySQL
 #from flask_sqlalchemy import SQLAlchemy
 from healthcheck import HealthCheck
@@ -17,6 +18,7 @@ from database.database import db_session, init_db
 app = Flask(__name__)
 load_dotenv('dev.env')
 init_db()
+
 
 logging.basicConfig(filename=os.getenv('LOGFILE_PATH'),
                     level=os.getenv('LOGGING_LEVEL'),
@@ -42,6 +44,7 @@ app.register_blueprint(order_manager_blueprint)
 app.register_blueprint(course_blueprint)
 app.register_blueprint(basic)
 app.register_blueprint(userBlueprintObject)
+app.register_blueprint(loginBlueprintObject)
 
 health = HealthCheck()
 
@@ -52,13 +55,17 @@ def isAppWorking():
 
 health.add_check(isAppWorking)
 
-app.add_url_rule("/healthCheck", 'healthCheck', view_func=lambda: health.run())
+app.add_url_rule("/api/v1/healthCheck", 'healthCheck', view_func=lambda: health.run())
 
 
 @app.errorhandler(404)
 def resource_not_found(e):
     return jsonify(error=str(e)), 404
 
+
 @app.teardown_appcontext
 def shutdown_session(exception=None):
+    logging.info(f"DB connection removed!!!")
     db_session.remove()
+
+
