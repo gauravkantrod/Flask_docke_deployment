@@ -1,10 +1,8 @@
 from flask import Blueprint, request
-from schema.user import UserSchema
 import logging
-from database.database import db_session
 from models.user import User
-from werkzeug.security import check_password_hash, generate_password_hash
-from sqlalchemy import exc
+from werkzeug.security import check_password_hash
+from flask_jwt_extended import create_access_token
 
 # login Blueprint object
 loginBlueprintObject = Blueprint('login', __name__, url_prefix='/api/v1/login')
@@ -18,7 +16,9 @@ def userLogin():
     if user:
         if check_password_hash(user.password, body['password']):
             logging.info(f"login : User {body['email']} authenticated!!")
-            return {'status_code': 200, "message": "User authenticated!!"}, 200
+            # create a new token with the user id inside
+            access_token = create_access_token(identity=user.email)
+            return {'status_code': 200, "message": "User authenticated!!", "token": access_token}, 200
         else:
             logging.error(f"login : User {body['email']} not authenticated. Password is wrong!!")
             return {'status_code': 401, "message": "Username/email or password is not correct!!"}, 401

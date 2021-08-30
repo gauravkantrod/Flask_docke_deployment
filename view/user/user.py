@@ -3,8 +3,9 @@ from schema.user import UserSchema
 import logging
 from database.database import db_session
 from models.user import User
-from werkzeug.security import check_password_hash, generate_password_hash
+from werkzeug.security import generate_password_hash
 from sqlalchemy import exc
+from flask_jwt_extended import jwt_required, get_jwt_identity
 
 # User's Blueprint object
 userBlueprintObject = Blueprint('user', __name__, url_prefix='/api/v1/users')
@@ -13,6 +14,7 @@ logger = logging.getLogger(__name__)
 
 
 @userBlueprintObject.route('/', methods=['GET'])
+@jwt_required()
 def getAllUsers():
     try:
         logger.info("user : getAllUsers: Fetching all users started!!")
