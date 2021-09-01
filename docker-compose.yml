@@ -40,3 +40,8 @@ services:
     volumes:
       - ./database/scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
       - ./database/scripts/mysqld.sock:/var/run/mysqld
+  redis:
+    image: redis
+    container_name: redis-container
+    ports:
+      - "6379:6379"

@@ -3,6 +3,8 @@ import logging
 from models.user import User
 from werkzeug.security import check_password_hash
 from flask_jwt_extended import create_access_token
+# application context by default accessible in view functions. Below import works fine in this file
+# from app import applicationContext
 
 # login Blueprint object
 loginBlueprintObject = Blueprint('login', __name__, url_prefix='/api/v1/login')
