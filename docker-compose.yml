@@ -6,6 +6,18 @@
 version: "3"
 
 services:
+  db:
+    image: mysql:8
+    container_name: db
+    restart: always
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=12345678
+    volumes:
+      - ./database/scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./database/scripts/mysqld.sock:/var/run/mysqld
+
   deploymentproject: # name of service
     build:
       context: . # path of Dockerfile that is present in project, in this case its same directory
@@ -13,6 +25,8 @@ services:
       - "5000"
       #- "5000:5000"  # 'HOST:CONTAINER' format <HOST or system port : docker container port>
     restart: always
+    depends_on:
+      - db
     links:
       - db
     volumes:
@@ -30,15 +44,3 @@ services:
     restart: always
     ports:
       - "8080:8080" # map <port 80 on my system/localhost to port 80 of docker nginx container>
-
-  db:
-    image: mysql:8
-    container_name: db
-    restart: always
-    ports:
-      - "3307:3306"
-    environment:
-      - MYSQL_ROOT_PASSWORD=12345678
-    volumes:
-      - ./database/scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
-      - ./database/scripts/mysqld.sock:/var/run/mysqld

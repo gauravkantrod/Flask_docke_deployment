@@ -7,6 +7,7 @@ MAINTAINER gauravk1994@gmail.com
 RUN apt-get update -y
 RUN apt-get install python3-pip -y
 RUN apt-get install python3-dev default-libmysqlclient-dev gcc  -y
+RUN apt-get install mysql-server -y
 
 COPY requirements.txt /deploymentProject/requirements.txt
 
