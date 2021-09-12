@@ -14,7 +14,7 @@ services:
       #- "5000:5000"  # 'HOST:CONTAINER' format <HOST or system port : docker container port>
     restart: always
     links:
-      - mysql_db
+      - db
     volumes:
       - ./database/scripts/mysqld.sock:/var/run/mysqld
 
@@ -29,9 +29,9 @@ services:
     ports:
       - "8080:8080" # map <port 80 on my system/localhost to port 80 of docker nginx container>
 
-  mysql_db:
+  db:
     image: mysql:8
-    container_name: mysql_service
+    container_name: db
     restart: always
     ports:
       - "3307:3306"
