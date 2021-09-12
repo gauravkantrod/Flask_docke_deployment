@@ -8,7 +8,7 @@ version: "3"
 services:
   deploymentproject: # name of service
     build:
-      context: . # path of Dockerfile that is present project is this case same directory
+      context: . # path of Dockerfile that is present in project, in this case its same directory
     ports:
       - "5000"
       #- "5000:5000"  # 'HOST:CONTAINER' format <HOST or system port : docker container port>
@@ -40,8 +40,3 @@ services:
     volumes:
       - ./database/scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
       - ./database/scripts/mysqld.sock:/var/run/mysqld
-  redis:
-    image: redis
-    container_name: redis-container
-    ports:
-      - "6379:6379"
