@@ -23,6 +23,8 @@ services:
     container_name: nginx_service
     volumes: # path of config files
       - ./nginx.conf:/etc/nginx/nginx.conf:ro # map system nginx.conf file to nginx image configuration file
+    environment:
+      - SERVER_NAME=localhost
     depends_on: # asks nginx to wait till deploymentproject instances starts
       - deploymentproject
     restart: always
