@@ -5,16 +5,14 @@ from flask import Flask, jsonify
 from flask_jwt_extended import JWTManager
 import os
 from dotenv import load_dotenv
-from view.order_management.order import order_manager_blueprint
-from view.course.course import course_blueprint
+
 from view.basicWorking.basicCheck import basic
-from view.user.user import userBlueprintObject
-from view.auth.login import loginBlueprintObject
+
 #from flask_mysqldb import MySQL
 #from flask_sqlalchemy import SQLAlchemy
 from healthcheck import HealthCheck
 import logging
-from database.database import db_session, init_db
+# from database.database import db_session, init_db
 from datetime import timedelta
 from flask_cors import CORS
 
@@ -22,7 +20,7 @@ app = Flask(__name__)
 load_dotenv('dev.env')
 app.config.from_object(os.getenv('CONFIGURATION_SETUP'))
 CORS(app)
-init_db()
+# init_db()
 
 
 logging.basicConfig(filename=app.config['LOGFILE_PATH'],
@@ -33,11 +31,7 @@ logging.basicConfig(filename=app.config['LOGFILE_PATH'],
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(seconds=app.config['JWT_ACCESS_TOKEN_EXPIRES_TIME'])
 jwt = JWTManager(app)
 
-app.register_blueprint(order_manager_blueprint)
-app.register_blueprint(course_blueprint)
 app.register_blueprint(basic)
-app.register_blueprint(userBlueprintObject)
-app.register_blueprint(loginBlueprintObject)
 
 health = HealthCheck()
 
@@ -56,13 +50,13 @@ def resource_not_found(e):
     return jsonify(error=str(e)), 404
 
 
-@app.teardown_appcontext
-def shutdown_session(exception=None):
-    # The method db_session.close() only ends the transaction for the local session object,
-    # but does not end the connection with the database and does not automatically return the connection to the pool.
-    # By adding a db_session.remove() we ensure our connection is closed properly.
-    logging.info(f"DB connection removed!!!")
-    db_session.remove()
+# @app.teardown_appcontext
+# def shutdown_session(exception=None):
+#     # The method db_session.close() only ends the transaction for the local session object,
+#     # but does not end the connection with the database and does not automatically return the connection to the pool.
+#     # By adding a db_session.remove() we ensure our connection is closed properly.
+#     logging.info(f"DB connection removed!!!")
+#     db_session.remove()
 
 
 class AppCtxConf:
