@@ -1,10 +1,11 @@
 # list of instructions on how to build a container
-FROM python:3.7-slim
+FROM ubuntu:18.04
 
 # who is maintainer of the project
 MAINTAINER gauravk1994@gmail.com
 
-RUN apt-get update
+RUN apt-get update -y
+RUN apt-get install python3-pip -y
 RUN apt-get install python3-dev default-libmysqlclient-dev gcc  -y
 
 COPY requirements.txt /deploymentProject/requirements.txt
@@ -12,7 +13,7 @@ COPY requirements.txt /deploymentProject/requirements.txt
 # working directory of the application in docker container
 WORKDIR /deploymentProject
 
-RUN pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
 COPY . /deploymentProject
 
